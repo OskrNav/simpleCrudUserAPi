@@ -1,0 +1,6 @@
+class API::V1::UsersController < ApplicationController
+  def index
+    users = User.all
+    render json: { books: users }, status: :ok
+  end
+end
