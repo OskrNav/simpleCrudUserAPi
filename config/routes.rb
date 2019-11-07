@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   get 'admin/login'
   get 'admin/index'
+  post 'admin/verificarLogin' , to: "admin#validateUser" , as: "validateUser"
 
   root to:'admin#index'
 
@@ -14,6 +15,5 @@ Rails.application.routes.draw do
       post 'authenticate', to: 'authentication#authenticate'
     end  
   end
-  resources :items
   
 end
