@@ -16,6 +16,10 @@ test:
   database: crudUser_test
 
 production:
-  <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
-  pool: 15
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database:  <%= ENV['PRO_DB_NAME'] %>
+  pool: 5
+  username: <%= ENV['PRO_DB_USERNAME'] %>
+  password:  <%= ENV['PRO_DB_PASSWORD'] %>
