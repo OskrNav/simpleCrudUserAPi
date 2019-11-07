@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'simple_command'
  gem 'versionist'
  gem 'active_model_serializers', '~> 0.10.0'
+ gem 'httparty'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
