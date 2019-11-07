@@ -18,24 +18,20 @@ class AdminController < ApplicationController
   end
 
   def validateUser
+
+
     email = params[:email]
     password = params[:password]
 
-    uri = URI.parse("http://localhost:3000/api/v1/authenticate")
+    options = { :body => 
+         { :username => 'my',
+           :password => 'password' 
+        }
+    }
+    results = HTTParty.post("http://localhost:3000/api/v1/authenticate", options)
 
-    header = {'Content-Type': 'text/json'}
-    user = {
-                   email: email,
-                   password: password
-            }
-            
-
-    http = Net::HTTP.new(uri.host, uri.port)
-    request = Net::HTTP::Post.new(uri.request_uri, header)
-    request.body = user.to_json
-
-    response = http.request(request)
-    render plain:response
+   
+    render plain:results
   end
 
 
